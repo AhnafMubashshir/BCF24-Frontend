@@ -1,0 +1,49 @@
+name: bcf24- Angular build with deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    name: Build and Deploy
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+ 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+ 
+      - name: Use Node 15.14.0
+        uses: actions/setup-node@v1
+        with:
+          node-version: '21.1.0'
+ 
+      - name: Install dependencies
+        run: npm install
+ 
+      - name: Build
+        run: npm run dev-build
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      
+      - name: Get parameters from SSM
+        uses: dkershner6/aws-ssm-getparameters-action@v2
+        with:
+          parameterPairs: |
+            # /bcf24/frontend/s3= S3_BUCKET
+            # /bcf24/frontend/cloudfront_distribution_id = CLOUDFRONT_ID
+          withDecryption: "true"
+      
+      - name: Sync files to S3
+        run: |
+          set -e
+          aws s3 sync ./dist/angulary s3://${{secrets.S3_BUCKET}}
