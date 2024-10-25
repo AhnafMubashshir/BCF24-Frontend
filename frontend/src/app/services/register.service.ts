@@ -7,7 +7,7 @@ import { HttpResponse } from '@angular/common/http';
   providedIn: 'root',
 })
 export class RegisterService {
-  private baseUrl = 'http://localhost:8000/v1/registration/'; // Replace with your actual API URL
+  private baseUrl = 'https://api.projectsbd.me/v1/registration/'; // Replace with your actual API URL
 
   constructor(private http: HttpClient) {}
 

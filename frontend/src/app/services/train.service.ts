@@ -7,7 +7,7 @@ import { Train } from '../interfaces/train.interface';
   providedIn: 'root',
 })
 export class TrainService {
-  private baseUrl = 'http://localhost:8001/v1/ticket/'; // Replace with your actual API URL
+  private baseUrl = 'https://api.projectsbd.me/v1/ticket/'; // Replace with your actual API URL
 
   constructor(private http: HttpClient) {}
 

@@ -7,7 +7,7 @@ import { AuthResponse } from '../interfaces/auth-response.interface';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:8000/v1/registration/'; // Replace with your actual API URL
+  private baseUrl = 'https://api.projectsbd.me/v1/registration/'; // Replace with your actual API URL
 
   constructor(private http: HttpClient) {}
 
