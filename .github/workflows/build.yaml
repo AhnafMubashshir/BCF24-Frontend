@@ -2,7 +2,7 @@ name: bcf24- Angular build with deploy
 on:
   push:
     branches:
-      - main
+      - frontend
 
 jobs:
   build_and_deploy:
