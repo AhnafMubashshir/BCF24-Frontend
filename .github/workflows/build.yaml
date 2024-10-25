@@ -17,16 +17,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
  
-      - name: Use Node 15.14.0
+      - name: Use Node 21.1.0
         uses: actions/setup-node@v1
         with:
           node-version: '21.1.0'
  
       - name: Install dependencies
         run: npm install
- 
+        working-directory: ./frontend
+
       - name: Build
         run: npm run dev-build
+        working-directory: ./frontend   # Specify the correct directory
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
@@ -46,4 +48,4 @@ jobs:
       - name: Sync files to S3
         run: |
           set -e
-          aws s3 sync ./dist/angulary s3://${{secrets.S3_BUCKET}}
+          aws s3 sync ./frontend/dist/angulary s3://${{secrets.S3_BUCKET}}
