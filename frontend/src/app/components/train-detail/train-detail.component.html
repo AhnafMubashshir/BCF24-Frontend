@@ -1,0 +1,17 @@
+<div class="train-detail-container" *ngIf="train">
+  <h2>Train Details</h2>
+  <h3>{{ train.train_name }}</h3>
+  <p>Route: {{ train.route }}</p>
+  <p>Journey Time: {{ train.journey_time }}</p>
+  <p>Arrival Time: {{ train.arrival_time }}</p>
+
+  <h4>Ticket Classes:</h4>
+  <ul>
+    <li *ngFor="let ticketClass of train.ticket_classes">
+      <h5>{{ ticketClass.class_name }}</h5>
+      <p>Price: {{ ticketClass.price | currency }}</p>
+      <p>Total Seats: {{ ticketClass.total_seats }}</p>
+      <p>Available Seats: {{ ticketClass.available_seats }}</p>
+    </li>
+  </ul>
+</div>

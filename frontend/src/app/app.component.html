@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<div>
+  <h1>My Angular App</h1>
+
+  <div *ngIf="userId; else loginRegister">
+    <p>Welcome, User ID: {{ userId }}</p>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <ng-template #loginRegister>
+    <button routerLink="/auth">Login</button>
+    <button routerLink="/register">Register</button>
+  </ng-template>
+
+  <router-outlet></router-outlet> <!-- Placeholder for routed components -->
+</div>

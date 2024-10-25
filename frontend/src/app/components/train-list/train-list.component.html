@@ -1,0 +1,11 @@
+<div class="train-list-container">
+  <h2>Train List</h2>
+  <ul>
+    <li *ngFor="let train of trains" (click)="navigateToTrainDetails(train.id)">
+      <h3>{{ train.train_name }}</h3>
+      <p>Route: {{ train.route }}</p>
+      <p>Journey Time: {{ train.journey_time }}</p>
+      <p>Arrival Time: {{ train.arrival_time }}</p>
+    </li>
+  </ul>
+</div>

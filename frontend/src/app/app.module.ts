@@ -6,18 +6,22 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
-import { OtpVerificationComponent } from './components/otp-verification/otp-verification.component';
-import { PasswordSetupComponent } from './components/password-setup/password-setup.component';
-import { TokenVerificationComponent } from './components/token-verification/token-verification.component';
+import { RegisterComponent } from './components/register/register.component';
+import { VerifyOtpComponent } from './components/verify-otp/verify-otp.component';
+import { SetPasswordComponent } from './components/set-password/set-password.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { TrainListComponent } from './components/train-list/train-list.component';
+import { TrainDetailComponent } from './components/train-detail/train-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserRegistrationComponent,
-    OtpVerificationComponent,
-    PasswordSetupComponent,
-    TokenVerificationComponent
+    RegisterComponent,
+    VerifyOtpComponent,
+    SetPasswordComponent,
+    AuthComponent,
+    TrainListComponent,
+    TrainDetailComponent,
   ],
   imports: [
     BrowserModule,
