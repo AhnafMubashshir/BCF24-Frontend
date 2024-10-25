@@ -48,4 +48,4 @@ jobs:
       - name: Sync files to S3
         run: |
           set -e
-          aws s3 sync ./frontend/dist/angulary s3://${{secrets.S3_BUCKET}}
+          aws s3 sync ./frontend/dist/frontend s3://${{secrets.S3_BUCKET}}
