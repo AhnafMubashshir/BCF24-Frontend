@@ -27,8 +27,8 @@ jobs:
         working-directory: ./frontend
 
       - name: Build
-        run: npm run dev-build
-        working-directory: ./frontend   # Specify the correct directory
+        run: npm run build
+        working-directory: ./frontend 
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
